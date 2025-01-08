@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Header from "./_components/header";
 
 export default function Home() {
    return (
-      <div className="bg-red-500 px-5 ">
-         <h1>tailWind css</h1>
+      <div className=" ">
+         <Header />
       </div >
    );
 }
