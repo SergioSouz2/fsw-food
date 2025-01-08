@@ -14,7 +14,7 @@ model Restaurant {
    deliveryFee         Decimal    @db.Decimal(10, 2)
    deliveryTimeMinutes Int
    categories          Category[]
-   Products            Product[]
+   product             Product[]
 }
 
 model Category {
@@ -22,18 +22,20 @@ model Category {
    name        String
    imageUrl    String
    restaurants Restaurant[]
-   Products    Product[]
+   product     Product[]
+   createdAt   DateTime     @default(now())
 }
 
 model Product {
    id                 String     @id @default(uuid())
    name               String
-   description        String
    imageUrl           String
+   description        String
    price              Decimal    @db.Decimal(10, 2)
-   discountPercentege Int        @default(0)
+   discountPercentage Int
    restaurantId       String
    categoryId         String
    restaurant         Restaurant @relation(fields: [restaurantId], references: [id])
    category           Category   @relation(fields: [categoryId], references: [id])
+   createdAt          DateTime   @default(now())
 }
