@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:latest # Usando a imagem oficial do PostgreSQL
+    container_name: ${PROJECT_NAME}_db # Nome do container com base no nome do projeto
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER} # Usuário do PostgreSQL
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Senha do PostgreSQL
+      POSTGRES_DB: ${POSTGRES_DB} # Nome do banco de dados
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}" # Mapeando a porta do banco para a máquina host
+    volumes:
+      - ${PROJECT_NAME}_data:/var/lib/postgresql/data # Volume persistente para o banco de dados
+
+volumes:
+  fsw_food_data:
+    # O nome fixo do volume, já que não podemos usar variáveis aqui diretamente
+    driver: local
