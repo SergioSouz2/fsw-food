@@ -2,20 +2,24 @@ import Image from "next/image";
 import CategoryList from "./_components/category-list";
 import Header from "./_components/header";
 import Search from "./_components/search";
+import ProductList from "./_components/product-list";
+import { Button } from "./_components/ui/button";
+import { ChevronRight } from "lucide-react";
+
 
 export default function Home() {
    return (
-      <div className="px-5">
+      <div >
          <Header />
-         <div className="pt-6">
+         <div className="px-5 pt-6">
             <Search />
          </div>
 
-         <div className="pt-6">
+         <div className=" pt-6">
             <CategoryList />
          </div>
 
-         <div className="pt-6">
+         <div className="px-5 pt-6">
             <Image
                src={'/banner_pizza.png'}
                alt="Até 30% de desconto em pizzas!"
@@ -27,7 +31,17 @@ export default function Home() {
             />
          </div>
 
-         <div className="pt-6">
+         <div className="space-y-4 pt-6">
+            <div className="px-5 flex justify-between items-center">
+               <h2 className="font-semibold">Pedidos Recomendados</h2>
+               <Button variant={"ghost"} className="text-primary p-0 hover:bg-transparent h-fit">Ver Todos
+                  <ChevronRight size={16} />
+               </Button>
+            </div>
+            <ProductList />
+         </div>
+
+         <div className=" px-5 pt-6">
             <Image
                src={'/banner_burguer.png'}
                alt="A partir de R$17,00 em lanches"
@@ -38,6 +52,18 @@ export default function Home() {
                quality={100}
             />
          </div>
+
+
+         <div className="space-y-4 pt-6">
+            <div className="px-5 flex justify-between items-center">
+               <h2 className="font-semibold">Restaurantes Recomendados</h2>
+               <Button variant={"ghost"} className="text-primary p-0 hover:bg-transparent h-fit">Ver Todos
+                  <ChevronRight size={16} />
+               </Button>
+            </div>
+         </div>
+
+
       </div >
    );
 }

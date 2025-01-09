@@ -7,7 +7,7 @@ const CategoryList = async () => {
 
    return (
       // <div className="grid grid-cols-2 gap-3">
-      <div className="flex overflow-x-scroll gap-3 w-auto">
+      <div className="flex overflow-x-scroll [&::-webkit-scrollbar]:hidden px-5 gap-3 w-auto">
          {
             categories.map((category) => (
                <CategoryItem
@@ -15,7 +15,7 @@ const CategoryList = async () => {
                />
             ))
          }
-      </div>
+      </div >
    );
 }
 

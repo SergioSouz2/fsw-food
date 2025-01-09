@@ -781,23 +781,7 @@ const createDeserts = async (restaurantId: string, categoryId: string) => {
 
 
    const desertProducts = [
-      {
-         name: "Sorvete Especial",
-         price: 30, // OK.
-         description: description, // OK.
-         discountPercentage: 10, // OK.
-         imageUrl: "https://example.com/sorvete.png", // OK.
-         restaurant: {
-            connect: {
-               id: restaurantId, // OK, corresponde ao `restaurantId` no esquema.
-            },
-         },
-         category: {
-            connect: {
-               id: categoryId, // OK, corresponde ao `categoryId` no esquema.
-            },
-         },
-      },
+
       {
          name: "Bolo de Chocolate",
          price: 40,
