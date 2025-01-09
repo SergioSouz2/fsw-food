@@ -1,9 +1,14 @@
+import { Category } from "@prisma/client";
 import { db } from "../_lib/prisma";
 import CategoryItem from "./category-item";
 
-const CategoryList = async () => {
+interface CategoryListProps {
+   categories: Category[];
+}
 
-   const categories = await db.category.findMany({})
+
+const CategoryList = async ({ categories }: CategoryListProps) => {
+
 
    return (
       // <div className="grid grid-cols-2 gap-3">

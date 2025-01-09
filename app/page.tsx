@@ -5,9 +5,27 @@ import Search from "./_components/search";
 import ProductList from "./_components/product-list";
 import { Button } from "./_components/ui/button";
 import { ChevronRight } from "lucide-react";
+import { db } from "./_lib/prisma";
 
 
-export default function Home() {
+export default async function Home() {
+
+   const categories = await db.category.findMany({})
+
+
+   const products = await db.product.findMany({
+      where: {
+         discountPercentage: {
+            gt: 0,
+         }
+      },
+      take: 10,
+      include: {
+         restaurant: true
+      }
+
+   })
+
    return (
       <div >
          <Header />
@@ -16,7 +34,7 @@ export default function Home() {
          </div>
 
          <div className=" pt-6">
-            <CategoryList />
+            <CategoryList categories={categories} />
          </div>
 
          <div className="px-5 pt-6">
@@ -38,7 +56,7 @@ export default function Home() {
                   <ChevronRight size={16} />
                </Button>
             </div>
-            <ProductList />
+            <ProductList products={products} />
          </div>
 
          <div className=" px-5 pt-6">
