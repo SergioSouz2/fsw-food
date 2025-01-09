@@ -6,6 +6,7 @@ import ProductList from "./_components/product-list";
 import { Button } from "./_components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { db } from "./_lib/prisma";
+import PromoBanner from "./_components/promo-banner";
 
 
 export default async function Home() {
@@ -38,14 +39,9 @@ export default async function Home() {
          </div>
 
          <div className="px-5 pt-6">
-            <Image
-               src={'/banner_pizza.png'}
+            <PromoBanner
                alt="Até 30% de desconto em pizzas!"
-               width={0}
-               height={0}
-               className="w-full h-auto object-contain"
-               sizes="100vw"
-               quality={100}
+               src={'/banner_pizza.png'}
             />
          </div>
 
@@ -60,14 +56,9 @@ export default async function Home() {
          </div>
 
          <div className=" px-5 pt-6">
-            <Image
-               src={'/banner_burguer.png'}
+            <PromoBanner
                alt="A partir de R$17,00 em lanches"
-               width={0}
-               height={0}
-               className="w-full h-auto object-contain"
-               sizes="100vw"
-               quality={100}
+               src={'/banner_burguer.png'}
             />
          </div>
 
