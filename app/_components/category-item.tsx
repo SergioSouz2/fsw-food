@@ -9,15 +9,17 @@ interface CategoryItemProps {
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
    return (
-      <div className="flex items-center gap-3 py-3 px-3  rounded-full shadow-md bg-white " >
-         <Image
-            src={category.imageUrl}
-            alt={category.name}
-            width={20}
-            height={20}
-         />
-         <span className=" text-[12px] font-semibold">{category.name}</span>
-      </div>
+      <Card className=" py-3 px-3  rounded-full bg-white" >
+         <div className="flex items-center justify-center  gap-3 w-[140px] h-[30px]">
+            <Image
+               src={category.imageUrl}
+               alt={category.name}
+               width={30}
+               height={30}
+            />
+            <span className=" text-sm font-semibold">{category.name}</span>
+         </div>
+      </Card>
    );
 }
 
