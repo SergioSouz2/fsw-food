@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Button } from "./ui/button";
 import { Category } from "@prisma/client";
 import { Card } from "./ui/card";
 

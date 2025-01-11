@@ -1,19 +1,19 @@
-import Image from "next/image";
-import CategoryList from "./_components/category-list";
+import { db } from "./_lib/prisma";
+import { ChevronRight } from "lucide-react";
+
 import Header from "./_components/header";
 import Search from "./_components/search";
-import ProductList from "./_components/product-list";
 import { Button } from "./_components/ui/button";
-import { ChevronRight } from "lucide-react";
-import { db } from "./_lib/prisma";
+import ProductList from "./_components/product-list";
 import PromoBanner from "./_components/promo-banner";
+import CategoryList from "./_components/category-list";
+import RestaurantList from "./_components/restaurant-list";
 
 
 export default async function Home() {
 
    const categories = await db.category.findMany({})
-
-
+   const restaurants = await db.restaurant.findMany({ take: 10 })
    const products = await db.product.findMany({
       where: {
          discountPercentage: {
@@ -72,6 +72,10 @@ export default async function Home() {
             </div>
          </div>
 
+
+         <div className=" pt-6 pb-6">
+            <RestaurantList restaurants={restaurants} />
+         </div>
 
       </div >
    );
